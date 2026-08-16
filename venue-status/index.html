@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World Cup 2030 Venue Status Tracker | Total Dribble</title>
+<meta name="description" content="Live status for all 23 proposed 2030 World Cup stadiums: confirmed, building, at risk or withdrawn. Sourced capacities, check dates and a public change log.">
+<link rel="canonical" href="https://totaldribble.com/venue-status/">
+<meta property="og:title" content="World Cup 2030 Venue Status Tracker">
+<meta property="og:description" content="Live status for all 23 proposed 2030 World Cup stadiums, with sourced capacities and a public change log.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://totaldribble.com/venue-status/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<style>
+
+
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --terra:#C60B1E;
+  --gold:#FFC400;
+  --cream:#F5F0E8;
+  --brown:#0A0F1A;
+  --brown2:#101828;
+  --brown3:#1A2438;
+  --muted:rgba(245,240,232,0.65);
+  --border:rgba(245,240,232,0.1);
+}
+html{scroll-behavior:smooth}
+body{background:var(--brown);color:var(--cream);font-family:'Inter',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.aff-btn,.nav-cta,a.aff-btn{transition:all 0.25s ease,box-shadow 0.25s ease}
+.aff-btn:hover,.nav-cta:hover{box-shadow:0 0 0 1px rgba(245,240,232,0.25),0 0 0 5px rgba(198,11,30,0.15),0 4px 18px rgba(198,11,30,0.35)}
+.aff-btn[style*="transparent"]{box-shadow:none}
+.aff-btn[style*="transparent"]:hover{box-shadow:0 0 0 4px rgba(255,196,0,0.18),0 4px 18px rgba(255,196,0,0.3)}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.25rem 3rem;background:rgba(10,15,26,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.logo{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;letter-spacing:0.12em;color:var(--cream);text-decoration:none;text-transform:uppercase}
+.logo em{color:var(--terra);font-style:italic}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:#fff;text-decoration:none;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--terra)}
+.nav-cta{background:var(--terra);color:var(--gold);padding:0.5rem 1.25rem;border-radius:4px;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:opacity 0.2s}
+.nav-cta:hover{opacity:0.88}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:0.5rem}
+.hamburger span{width:24px;height:2px;background:var(--cream);transition:0.3s}
+.mobile-nav{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;background:var(--brown);z-index:99;padding:2rem;flex-direction:column;gap:1.5rem}
+.mobile-nav.open{display:flex}
+.mobile-nav a{color:var(--cream);text-decoration:none;font-size:1rem;letter-spacing:0.08em;text-transform:uppercase}
+.mobile-nav-cta{background:var(--terra);color:#fff;text-align:center;padding:0.9rem;border-radius:4px;font-weight:700;text-decoration:none;letter-spacing:0.08em;text-transform:uppercase}
+.breadcrumb{margin-top:60px;padding:1rem 3rem;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border);background:var(--brown);display:flex;align-items:center;gap:0.5rem}
+.breadcrumb a{color:var(--terra);text-decoration:none}
+.hero{position:relative;height:85vh;min-height:580px;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;overflow:hidden;padding:0 3rem 3rem}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.85;display:block}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to right,rgba(10,15,26,0.75) 0%,rgba(10,15,26,0.2) 60%,transparent 100%),linear-gradient(to top,rgba(10,15,26,0.85) 0%,transparent 55%)}
+.hero-content{position:relative;z-index:2;max-width:660px}
+.hero-eyebrow{font-size:0.65rem;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:var(--terra);margin-bottom:1rem;display:flex;align-items:center;gap:0.75rem}
+.hero-eyebrow::before{content:'';width:24px;height:1px;background:var(--terra);display:block}
+.hero-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2.6rem,6vw,5rem);font-weight:800;line-height:0.95;text-transform:uppercase;margin-bottom:0.75rem;color:#FFFFFF;text-shadow:0 2px 12px rgba(0,0,0,0.4);overflow-wrap:break-word;max-width:100%}
+.hero-title .accent{color:var(--terra)}
+.hero-sub{font-size:1.02rem;color:rgba(255,255,255,0.88);line-height:1.65;max-width:580px;margin-bottom:2rem;text-shadow:0 1px 8px rgba(0,0,0,0.35)}
+.hero-stats{display:flex;gap:2rem;flex-wrap:wrap;margin-bottom:0.5rem}
+.hstat{display:flex;flex-direction:column;gap:0.15rem}
+.hstat-num{font-family:'Barlow Condensed',sans-serif;font-size:1.8rem;font-weight:700;color:var(--terra);line-height:1}
+.hstat-label{font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.75)}
+.quick-info{background:rgba(198,11,30,0.75);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:1.5rem 3rem;flex-wrap:wrap;gap:0.5rem 0;border-bottom:1px solid rgba(198,11,30,0.4)}
+.section-pills{background:var(--brown2);padding:0.75rem 3rem;display:flex;flex-wrap:wrap;gap:0.5rem;border-bottom:1px solid var(--border);justify-content:center}
+.section-pills a{font-size:0.78rem;font-weight:600;color:rgba(245,240,232,0.7);border:1px solid rgba(245,240,232,0.2);padding:0.3rem 0.9rem;border-radius:100px;text-decoration:none;transition:all 0.2s}
+.section-pills a:hover{border-color:var(--terra);color:var(--terra)}
+.qi-item{display:flex;align-items:center;gap:0.5rem;padding:0 2rem;border-right:1px solid rgba(255,255,255,0.25)}
+.qi-item:last-child{border-right:none}
+.qi-label{font-size:0.8rem;color:rgba(255,255,255,0.7)}
+.qi-value{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:#fff;letter-spacing:0.03em}
+.section{padding:2.5rem 3rem}
+.section-alt{background:var(--brown2)}
+.section-label{font-size:0.62rem;color:var(--terra);letter-spacing:0.18em;text-transform:uppercase;font-weight:600;margin-bottom:0.75rem}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.4rem);font-weight:700;color:var(--cream);margin-bottom:1.25rem;line-height:1.15;overflow-wrap:break-word;max-width:100%}
+.section-title em{font-style:italic;color:var(--terra)}
+.body-text{font-size:0.9rem;color:var(--muted);line-height:1.85;max-width:780px}
+.body-text + .body-text{margin-top:1.15rem}
+.body-text a{color:var(--terra);text-decoration:underline;text-underline-offset:2px}
+.pull-quote{border-left:3px solid var(--terra);margin:1.75rem 0;padding:0.5rem 0 0.5rem 1.5rem;max-width:720px}
+.pull-quote p{font-family:'Playfair Display',serif;font-style:italic;font-size:1.1rem;color:var(--cream);line-height:1.5;margin-bottom:0.4rem}
+.pull-quote cite{font-size:0.72rem;color:var(--muted);letter-spacing:0.03em;font-style:normal}
+.fact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0.85rem;margin-top:1.5rem}
+.fact-card{background:var(--brown3);border:1px solid var(--border);border-radius:8px;padding:1.1rem}
+.fact-card-icon{font-size:1.4rem;display:block;margin-bottom:0.4rem}
+.fact-card-label{font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--terra);font-weight:600;margin-bottom:0.3rem}
+.fact-card-value{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--cream);line-height:1.2}
+.split-layout{display:grid;grid-template-columns:1.3fr 1fr;gap:3.5rem;align-items:start}
+.side-figure{margin:0}
+.side-figure img{width:100%;height:200px;object-fit:cover;border-radius:6px;display:block}
+.section-banner-hero{position:relative;width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);margin-top:-2.5rem;margin-bottom:2rem;min-height:300px;overflow:hidden}
+.section-banner-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.section-banner-hero .sbh-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,15,26,0.92) 0%,rgba(10,15,26,0.55) 45%,rgba(10,15,26,0.15) 100%)}
+.section-banner-hero .sbh-text{position:relative;z-index:1;padding:2.5rem 2rem 1.75rem 3rem;max-width:680px}
+.section-banner-hero .sbh-text .section-label{margin-bottom:0.5rem}
+.section-banner-hero .sbh-text .section-title{margin-bottom:0.6rem;color:#FFFFFF;text-shadow:0 2px 10px rgba(0,0,0,0.45)}
+.section-banner-hero .sbh-text .sbh-sub{font-size:0.92rem;color:rgba(255,255,255,0.9);line-height:1.6;text-shadow:0 1px 6px rgba(0,0,0,0.4);margin:0}
+@media(max-width:900px){.section-banner-hero{min-height:auto;margin-top:-2.5rem}.section-banner-hero .sbh-text{padding:1.5rem 1.5rem 1.5rem 1.5rem}}
+.side-figure figcaption{font-size:0.7rem;font-style:italic;color:var(--muted);margin-top:0.5rem;text-align:center}
+.info-callout{background:var(--brown3);border-left:3px solid var(--terra);padding:1.1rem 1.25rem;border-radius:4px;margin-top:1.5rem}
+.info-callout-label{font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--terra);font-weight:700;margin-bottom:0.5rem}
+.info-callout-text{font-size:0.8rem;color:var(--muted);line-height:1.7}
+.mini-banner-hero{position:relative;width:100%;height:100%;min-height:280px;border-radius:4px;overflow:hidden;border-left:3px solid var(--terra)}
+.mini-banner-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.mini-banner-hero .mbh-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,15,26,0.95) 0%,rgba(10,15,26,0.65) 50%,rgba(10,15,26,0.25) 100%)}
+.mini-banner-hero .mbh-text{position:relative;z-index:1;padding:1.1rem 1.25rem}
+.mini-banner-hero .info-callout-label{margin-bottom:0.5rem}
+.mini-banner-hero .info-callout-text{color:rgba(245,240,232,0.92)}
+.timeline{position:relative;margin-top:1.5rem;max-width:780px}
+.tl-item{position:relative;padding:0 0 1.25rem 2rem;display:flex;align-items:baseline;gap:0.85rem;flex-wrap:wrap}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:'';position:absolute;left:0;top:0.3rem;width:11px;height:11px;border-radius:50%;background:var(--terra);z-index:1}
+.tl-item::after{content:'';position:absolute;left:5px;top:1.1rem;bottom:-0.25rem;width:1px;background:rgba(245,240,232,0.2)}
+.tl-item:last-child::after{display:none}
+.tl-year{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:800;color:var(--terra);line-height:1.4;flex-shrink:0;min-width:5.6rem}
+.tl-text{font-size:0.8rem;color:var(--muted);line-height:1.6;flex:1;min-width:200px}
+.tl-text strong{color:var(--cream)}
+.htimeline-wrap{padding:2.5rem 3rem}
+.htimeline-label{font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--terra);font-weight:600;text-align:center;margin-bottom:2rem}
+.htimeline{display:flex;align-items:flex-start;position:relative;gap:0}
+.htimeline-line{position:absolute;top:8px;left:0;right:0;height:1px;background:rgba(245,240,232,0.15)}
+.htimeline-stop{display:flex;flex-direction:column;align-items:center;position:relative;z-index:2}
+.htimeline-dot{width:16px;height:16px;border-radius:50%;background:var(--terra);border:2px solid var(--brown);margin-bottom:0.5rem;flex-shrink:0}
+.htimeline-city{font-family:'Barlow Condensed',sans-serif;font-size:0.9rem;font-weight:700;color:var(--cream);text-align:center;text-transform:uppercase;white-space:nowrap}
+.htimeline-stadium{font-size:0.62rem;color:var(--muted);text-align:center;margin-top:0.2rem;line-height:1.4}
+.htimeline-segment{flex:1;display:flex;align-items:flex-start;justify-content:center;position:relative;padding-top:2px}
+.htimeline-duration{font-size:0.68rem;font-weight:600;color:var(--terra);background:var(--brown);border:1px solid rgba(198,11,30,0.3);padding:0.15rem 0.5rem;border-radius:100px;white-space:nowrap;position:relative;z-index:2}
+.other-transport{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.other-card{background:var(--brown3);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.other-card-body{padding:1.25rem}
+.other-icon{font-size:1.2rem;color:var(--terra);margin-bottom:0.5rem}
+.other-title{font-size:0.88rem;font-weight:600;color:var(--cream);margin-bottom:0.4rem}
+.other-text{font-size:0.75rem;color:var(--muted);line-height:1.6;margin-bottom:0.75rem}
+.other-card-cta{font-size:0.72rem;color:var(--terra);font-weight:600;text-decoration:none;display:flex;align-items:center;gap:0.3rem}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.why-card{background:var(--brown3);border:1px solid var(--border);border-radius:8px;transition:transform 0.2s,border-color 0.2s;overflow:hidden}
+.why-card:hover{transform:translateY(-2px);border-color:var(--terra)}
+.why-card-img{position:relative;min-height:75px;display:flex;align-items:flex-end}
+.why-card-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.why-card-img .wci-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,15,26,0.95) 0%,rgba(10,15,26,0.35) 60%,rgba(10,15,26,0.05) 100%)}
+.why-card-img .wci-text{position:relative;z-index:1;padding:0.7rem 0.85rem;width:100%}
+.why-card-img .why-title{margin:0;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,0.55)}
+.why-card-img .why-text{color:rgba(255,255,255,0.88)}
+.why-title{font-family:'Barlow Condensed',sans-serif;font-size:0.95rem;font-weight:700;color:var(--cream);text-transform:uppercase;letter-spacing:0.03em}
+.why-text{font-size:0.75rem;color:var(--muted);margin-top:0.3rem}
+.aff-btn{background:var(--terra);color:var(--gold);padding:0.75rem 1.5rem;border-radius:5px;font-size:0.78rem;font-weight:700;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;white-space:nowrap;transition:opacity 0.2s;display:inline-flex;align-items:center;gap:0.5rem}
+.aff-btn:hover{opacity:0.88}
+.faq-tabs{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.5rem;border-bottom:1px solid var(--border);padding-bottom:0;max-width:820px;margin-left:auto;margin-right:auto}
+.faq-tab{font-family:'Barlow Condensed',sans-serif;font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);background:none;border:none;padding:0.65rem 1.25rem;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all 0.2s}
+.faq-tab:hover{color:var(--cream)}
+.faq-tab.active{color:var(--terra);border-bottom-color:var(--terra)}
+.faq-panel{display:none}
+.faq-panel.active{display:block}
+.faq-list{display:flex;flex-direction:column;gap:0.5rem;max-width:820px;margin:0 auto}
+.faq-item{background:var(--brown3);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.5rem;cursor:pointer;font-size:0.88rem;font-weight:600;color:var(--cream);transition:background 0.2s;gap:1rem}
+.faq-q:hover{background:rgba(255,255,255,0.03)}
+.faq-icon{font-size:16px;color:var(--terra);flex-shrink:0;transition:transform 0.3s}
+.faq-item.open .faq-icon{transform:rotate(180deg)}
+.faq-a{display:none;padding:0 1.5rem 1.25rem;font-size:0.82rem;color:var(--muted);line-height:1.75}
+.faq-item.open .faq-a{display:block}
+@media(max-width:900px){
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .fact-grid{grid-template-columns:repeat(2,1fr)}
+  .split-layout{grid-template-columns:1fr}
+  .quick-info{padding:1.25rem 1.5rem}
+  .qi-item{padding:0.4rem 1rem;border-right:none;width:100%;justify-content:center}
+  .section{padding:2.5rem 1.5rem}
+  .hero{padding:0 1.5rem 2rem}
+  .htimeline{flex-wrap:wrap;gap:1.5rem}
+  .htimeline-line{display:none}
+  .other-transport{padding:1.5rem}
+  .gt-row{grid-template-columns:1fr!important}
+}
+
+.home-hero{position:relative;height:88vh;min-height:600px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;overflow:hidden;padding:0 3rem;margin-top:0}
+.home-hero .hero-bg img{opacity:0.55}
+.home-hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to right,rgba(10,15,26,0.88) 0%,rgba(10,15,26,0.5) 65%,rgba(10,15,26,0.25) 100%),linear-gradient(to top,rgba(10,15,26,0.8) 0%,transparent 60%)}
+.home-hero-content{position:relative;z-index:2;max-width:720px;padding-top:60px}
+.country-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:1.75rem}
+.country-card{position:relative;min-height:280px;border-radius:8px;overflow:hidden;display:flex;align-items:flex-end;text-decoration:none;border:1px solid var(--border);transition:transform 0.2s,border-color 0.2s}
+.country-card:hover{transform:translateY(-3px);border-color:var(--terra)}
+.country-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.country-card .cc-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,15,26,0.96) 0%,rgba(10,15,26,0.5) 55%,rgba(10,15,26,0.1) 100%)}
+.country-card .cc-text{position:relative;z-index:1;padding:1.5rem;width:100%}
+.cc-flag{width:26px;height:auto;border-radius:2px;margin-bottom:0.6rem;display:block}
+.cc-name{font-family:'Barlow Condensed',sans-serif;font-size:1.7rem;font-weight:800;text-transform:uppercase;color:#fff;line-height:1;margin-bottom:0.35rem}
+.cc-meta{font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--terra);font-weight:600;margin-bottom:0.5rem}
+.cc-desc{font-size:0.78rem;color:rgba(255,255,255,0.82);line-height:1.6}
+.stadium-strip{display:grid;grid-template-columns:repeat(6,1fr);gap:0.7rem;margin-top:1.5rem}
+.ss-card{position:relative;min-height:130px;border-radius:6px;overflow:hidden;display:flex;align-items:flex-end;text-decoration:none;border:1px solid var(--border);transition:border-color 0.2s}
+.ss-card:hover{border-color:var(--terra)}
+.ss-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.ss-card .ss-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,15,26,0.95) 0%,rgba(10,15,26,0.3) 70%,rgba(10,15,26,0.05) 100%)}
+.ss-card .ss-text{position:relative;z-index:1;padding:0.6rem 0.7rem;width:100%}
+.ss-name{font-family:'Barlow Condensed',sans-serif;font-size:0.82rem;font-weight:700;text-transform:uppercase;color:#fff;line-height:1.1;text-shadow:0 1px 5px rgba(0,0,0,0.6)}
+.ss-city{font-size:0.6rem;color:rgba(255,255,255,0.75);letter-spacing:0.07em;text-transform:uppercase;margin-top:0.15rem}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.5rem}
+.trust-card{background:var(--brown3);border:1px solid var(--border);border-radius:8px;padding:1.3rem}
+.trust-icon{font-size:1.5rem;color:var(--terra);display:block;margin-bottom:0.6rem}
+.trust-title{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;color:var(--cream);margin-bottom:0.45rem;letter-spacing:0.03em}
+.trust-text{font-size:0.78rem;color:var(--muted);line-height:1.7}
+.city-chips{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.25rem}
+.city-chips a{font-size:0.78rem;font-weight:600;color:rgba(245,240,232,0.75);border:1px solid rgba(245,240,232,0.2);padding:0.35rem 0.95rem;border-radius:100px;text-decoration:none;transition:all 0.2s}
+.city-chips a:hover{border-color:var(--terra);color:var(--terra)}
+@media(max-width:900px){
+  .home-hero{padding:0 1.5rem;height:auto;min-height:520px;padding-top:5rem;padding-bottom:3rem}
+  .country-grid{grid-template-columns:1fr}
+  .stadium-strip{grid-template-columns:repeat(2,1fr)}
+  .trust-grid{grid-template-columns:1fr 1fr}
+  .home-hero-content{padding-top:1rem}
+}
+@media(max-width:520px){
+  .trust-grid{grid-template-columns:1fr}
+  .stadium-strip{grid-template-columns:1fr 1fr}
+}
+
+.vs-table-wrap{overflow-x:auto;margin-top:1.5rem;border:1px solid var(--border);border-radius:8px}
+table.vs{width:100%;border-collapse:collapse;font-size:0.8rem;min-width:860px}
+table.vs th{background:var(--brown3);color:var(--terra);font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;text-align:left;padding:0.85rem 0.9rem;border-bottom:1px solid var(--border);white-space:nowrap}
+table.vs td{padding:0.8rem 0.9rem;border-bottom:1px solid var(--border);color:var(--muted);line-height:1.55;vertical-align:top}
+table.vs tr:last-child td{border-bottom:none}
+table.vs td a{color:var(--terra);text-decoration:none;font-weight:600}
+table.vs td a:hover{text-decoration:underline}
+table.vs td.vs-name{color:var(--cream);font-weight:600;white-space:nowrap}
+.vs-badge{display:inline-block;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;font-weight:700;padding:0.22rem 0.55rem;border-radius:100px;white-space:nowrap}
+.vs-ok{background:rgba(46,160,90,0.18);color:#5BD68F;border:1px solid rgba(46,160,90,0.4)}
+.vs-build{background:rgba(255,196,0,0.15);color:var(--gold);border:1px solid rgba(255,196,0,0.35)}
+.vs-risk{background:rgba(198,11,30,0.18);color:#FF7A85;border:1px solid rgba(198,11,30,0.45)}
+.vs-out{background:rgba(245,240,232,0.08);color:var(--muted);border:1px solid var(--border)}
+.vs-legend{display:flex;flex-wrap:wrap;gap:0.75rem;margin-top:1.25rem}
+.log-item{border-left:2px solid var(--border);padding:0 0 1.1rem 1.15rem;position:relative}
+.log-item::before{content:'';position:absolute;left:-5px;top:0.35rem;width:8px;height:8px;border-radius:50%;background:var(--terra)}
+.log-item:last-child{padding-bottom:0}
+.log-date{font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:700;color:var(--terra);letter-spacing:0.06em;text-transform:uppercase}
+.log-text{font-size:0.8rem;color:var(--muted);line-height:1.7;margin-top:0.25rem}
+@media(max-width:900px){.vs-legend{gap:0.5rem}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="logo">Total <em>Dribble</em></a>
+  <ul class="nav-links">
+    <li><a href="/spain/">Spain</a></li>
+    <li><a href="/portugal/">Portugal</a></li>
+    <li><a href="/morocco/">Morocco</a></li>
+    <li><a href="/stadiums/">Stadiums</a></li>
+    <li><a href="#log">Change Log</a></li>
+    <li><a href="#method">Method</a></li>
+  </ul>
+  <a href="/#newsletter" class="nav-cta">Newsletter</a>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="/spain/">Spain</a>
+  <a href="/portugal/">Portugal</a>
+  <a href="/morocco/">Morocco</a>
+  <a href="/stadiums/">All Stadiums</a>
+  <a href="#log">Change Log</a>
+  <a href="#method">Method</a>
+  <a href="/#newsletter" class="mobile-nav-cta">Newsletter</a>
+</div>
+
+<div class="breadcrumb"><a href="/">Home</a> <span>&rsaquo;</span> <span>Venue Status</span></div>
+
+<section class="section">
+  <div class="section-label">Live Tracker &middot; Last checked 17 August 2026</div>
+  <h1 class="section-title" style="font-size:clamp(2rem,4vw,3rem)">2030 World Cup <em>venue status</em></h1>
+  <p class="body-text">Twenty-three stadiums were included in the hosting plans approved by FIFA in December 2024. Not all of them will host a match. One host city has already withdrawn, several venues do not yet exist, and FIFA is weighing a reduction in the overall number of grounds. This page records where each venue stands, what the source is, and when we last checked.</p>
+  <p class="body-text">Status labels are our reading of publicly reported information, not FIFA designations. Where reporting is contested we mark the venue as at risk rather than removing it.</p>
+
+  <div class="vs-legend">
+    <span class="vs-badge vs-ok">Confirmed &middot; existing ground</span>
+    <span class="vs-badge vs-build">Building or renovating</span>
+    <span class="vs-badge vs-risk">Reported at risk</span>
+    <span class="vs-badge vs-out">Withdrawn</span>
+  </div>
+
+  <div class="vs-table-wrap">
+    <table class="vs">
+      <thead>
+        <tr><th>Stadium</th><th>City</th><th>Country</th><th>Capacity</th><th>Status</th><th>Note</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="vs-name"><a href="/stadiums/santiago-bernabeu">Santiago Bernabeu</a></td><td>Madrid</td><td>Spain</td><td>83,186</td><td><span class="vs-badge vs-ok">Confirmed</span></td><td>Redevelopment complete. Named as a contender for the final.</td></tr>
+        <tr><td class="vs-name"><a href="/stadiums/camp-nou">Camp Nou</a></td><td>Barcelona</td><td>Spain</td><td>105,000 planned</td><td><span class="vs-badge vs-build">Renovating</span></td><td>Rebuild expected fully operational in 2027. Would be Europe's largest ground.</td></tr>
+        <tr><td class="vs-name"><a href="/stadiums/civitas-metropolitano">Civitas Metropolitano</a></td><td>Madrid</td><td>Spain</td><td>70,692</td><td><span class="vs-badge vs-ok">Confirmed</span></td><td>Hosted the 2019 Champions League final. No major works required.</td></tr>
+        <tr><td class="vs-name"><a href="/stadiums/san-mames">San Mames</a></td><td>Bilbao</td><td>Spain</td><td>53,331</td><td><span class="vs-badge vs-ok">Confirmed</span></td><td>Completed 2013. Already meets FIFA requirements.</td></tr>
+        <tr><td class="vs-name"><a href="/stadiums/la-cartuja">La Cartuja</a></td><td>Seville</td><td>Spain</td><td>70,000</td><td><span class="vs-badge vs-build">Renovating</span></td><td>Athletics track removal and reconfiguration planned.</td></tr>
+        <tr><td class="vs-name"><a href="/stadiums/reale-arena">Reale Arena</a></td><td>San Sebastian</td><td>Spain</td><td>42,300</td><td><span class="vs-badge vs-risk">At risk</span></td><td>Residents wrote to FIFA in April 2025 asking the city be dropped, citing overtourism. Also named in reporting on venue reduction.</td></tr>
+        <tr><td class="vs-name"><a href="/stadiums/rcde-stadium">RCDE Stadium</a></td><td>Barcelona</td><td>Spain</td><td>40,500</td><td><span class="vs-badge vs-ok">Confirmed</span></td><td>Opened 2009. Second Barcelona venue.</td></tr>
+        <tr><td class="vs-name"><a href="/stadiums/nueva-romareda">Nueva Romareda</a></td><td>Zaragoza</td><td>Spain</td><td>Not final</td><td><span class="vs-badge vs-build">New build</span></td><td>Replacing the existing La Romareda. Does not yet exist.</td></tr>
+        <tr><td class="vs-name"><a href="/stadiums/estadio-gran-canaria">Estadio de Gran Canaria</a></td><td>Las Palmas</td><td>Spain</td><td>44,500 planned</td><td><span class="vs-badge vs-risk">At risk</span></td><td>Construction tender failed in July 2026. Timeline unresolved.</td></tr>
+        <tr><td class="vs-name">Nou Mestalla</td><td>Valencia</td><td>Spain</td><td>70,044 planned</td><td><span class="vs-badge vs-build">Renovating</span></td><td>Long-stalled build restarted. Guide not yet published.</td></tr>
+        <tr><td class="vs-name">Estadio Riazor</td><td>A Coruna</td><td>Spain</td><td>Not final</td><td><span class="vs-badge vs-risk">At risk</span></td><td>Named in reporting as a candidate for exclusion if venue numbers are cut.</td></tr>
+        <tr><td class="vs-name">Estadio La Rosaleda</td><td>Malaga</td><td>Spain</td><td>n/a</td><td><span class="vs-badge vs-out">Withdrawn</span></td><td>Malaga withdrew in July 2025 over redevelopment logistics.</td></tr>
+        <tr><td class="vs-name"><a href="/stadiums/estadio-da-luz">Estadio da Luz</a></td><td>Lisbon</td><td>Portugal</td><td>70,000 planned</td><td><span class="vs-badge vs-ok">Confirmed</span></td><td>Expansion of over 5,000 seats announced by Rui Costa, 30 November 2024. Named by the FPF to host a semi-final.</td></tr>
+        <tr><td class="vs-name"><a href="/stadiums/estadio-jose-alvalade">Estadio Jose Alvalade</a></td><td>Lisbon</td><td>Portugal</td><td>52,095</td><td><span class="vs-badge vs-build">Renovating</span></td><td>Fenwick Iribarren phased redevelopment. First phase began after the 2024-25 season.</td></tr>
+        <tr><td class="vs-name"><a href="/stadiums/estadio-do-dragao">Estadio do Dragao</a></td><td>Porto</td><td>Portugal</td><td>50,033</td><td><span class="vs-badge vs-ok">Confirmed</span></td><td>Opened November 2003. Operational upgrades only.</td></tr>
+        <tr><td class="vs-name"><a href="/stadiums/hassan-ii-stadium">Grand Stade Hassan II</a></td><td>Casablanca</td><td>Morocco</td><td>115,000 planned</td><td><span class="vs-badge vs-build">New build</span></td><td>Due for completion in 2028. Largest venue proposed for the tournament and a contender for the final.</td></tr>
+        <tr><td class="vs-name"><a href="/stadiums/prince-moulay-abdellah-stadium">Prince Moulay Abdellah</a></td><td>Rabat</td><td>Morocco</td><td>69,500</td><td><span class="vs-badge vs-ok">Confirmed</span></td><td>Rebuilt ahead of the 2025 Africa Cup of Nations.</td></tr>
+        <tr><td class="vs-name"><a href="/stadiums/ibn-batouta-stadium">Ibn Batouta Stadium</a></td><td>Tangier</td><td>Morocco</td><td>75,500</td><td><span class="vs-badge vs-build">Renovating</span></td><td>Expansion works tied to the AFCON programme.</td></tr>
+        <tr><td class="vs-name"><a href="/stadiums/grand-stade-marrakech">Grand Stade de Marrakech</a></td><td>Marrakech</td><td>Morocco</td><td>45,860</td><td><span class="vs-badge vs-build">Renovating</span></td><td>Upgraded for AFCON 2025.</td></tr>
+        <tr><td class="vs-name"><a href="/stadiums/fez-grand-stadium">Fez Grand Stadium</a></td><td>Fez</td><td>Morocco</td><td>55,800</td><td><span class="vs-badge vs-risk">At risk</span></td><td>Named in reporting as the Moroccan venue most likely to be cut if the total is reduced.</td></tr>
+        <tr><td class="vs-name"><a href="/stadiums/adrar-stadium">Adrar Stadium</a></td><td>Agadir</td><td>Morocco</td><td>46,000</td><td><span class="vs-badge vs-ok">Confirmed</span></td><td>Completed 2013, upgraded for AFCON 2025.</td></tr>
+        <tr><td class="vs-name">Estadio Centenario</td><td>Montevideo</td><td>Uruguay</td><td>63,000 planned</td><td><span class="vs-badge vs-build">Renovating</span></td><td>Hosts the first centenary match. Roof being added over most stands.</td></tr>
+        <tr><td class="vs-name">Estadio Monumental</td><td>Buenos Aires</td><td>Argentina</td><td>100,000 planned</td><td><span class="vs-badge vs-build">Renovating</span></td><td>Hosts a centenary match. Expansion planned from roughly 85,000.</td></tr>
+        <tr><td class="vs-name">Estadio Osvaldo Dominguez Dibb</td><td>Asuncion</td><td>Paraguay</td><td>46,000 planned</td><td><span class="vs-badge vs-build">New build</span></td><td>Hosts a centenary match. Would become the largest ground in Paraguay.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section section-alt" id="method">
+  <div class="section-label">Method</div>
+  <h2 class="section-title">How this table is <em>maintained</em></h2>
+  <p class="body-text">Capacity figures are the most frequently mangled numbers in World Cup coverage, because three different values circulate for most grounds: the current all-seater capacity, the capacity after a planned renovation, and a historic figure that no longer applies. Where a stadium is being rebuilt we label the figure as planned. Where sources disagree we prefer the club or federation's own published number over aggregated listings.</p>
+  <p class="body-text">Two specific cautions worth stating plainly. First, planned capacities are not commitments; several are attached to projects without confirmed funding or timelines. Second, figures announced by candidates for club office are proposals, not policy. A figure of 83,000 for Estadio da Luz circulated widely in late 2025 having come from a Benfica presidential candidate who subsequently lost the election. The figure carried by the club's actual leadership is 70,000.</p>
+  <div class="info-callout" style="max-width:780px">
+    <div class="info-callout-label">What we do not know yet</div>
+    <p class="info-callout-text">The final venue is unannounced. The total number of host stadiums is unsettled, with reporting suggesting a cut from twenty to as few as seventeen across Spain, Portugal and Morocco. No ticket sale dates or prices have been published. Match allocations per venue have not been made. None of these gaps are filled anywhere on this site with an estimate presented as fact.</p>
+  </div>
+</section>
+
+<section class="section" id="log">
+  <div class="section-label">Change Log</div>
+  <h2 class="section-title">Every correction, <em>in public</em></h2>
+  <p class="body-text">When a figure on this site changes, the change is recorded here with the date and the reason. Entries are added, never edited away.</p>
+  <div style="margin-top:1.5rem;max-width:820px">
+    <div class="log-item">
+      <div class="log-date">17 August 2026</div>
+      <p class="log-text">Tracker published. Initial status assigned to all twenty-three proposed venues from primary club, federation and architect sources plus contemporaneous reporting.</p>
+    </div>
+    <div class="log-item">
+      <div class="log-date">17 August 2026</div>
+      <p class="log-text">Estadio da Luz capacity recorded as 70,000 planned, not 83,000. The higher figure originated with a candidate in the November 2025 Benfica presidential election who was not elected, and does not represent club policy.</p>
+    </div>
+  </div>
+</section>
+
+<footer style="border-top:1px solid var(--border);padding:2.5rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;background:var(--brown)">
+  <a href="/" style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;letter-spacing:0.12em;color:var(--cream);text-decoration:none;text-transform:uppercase">Total <em style="color:var(--terra);font-style:italic">Dribble</em></a>
+  <ul style="display:flex;gap:2rem;list-style:none;flex-wrap:wrap">
+    <li><a href="/morocco/" style="font-size:0.7rem;color:var(--muted);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase">Morocco</a></li>
+    <li><a href="/spain/" style="font-size:0.7rem;color:var(--muted);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase">Spain</a></li>
+    <li><a href="/portugal/" style="font-size:0.7rem;color:var(--muted);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase">Portugal</a></li>
+    <li><a href="/stadiums/" style="font-size:0.7rem;color:var(--muted);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase">All Stadiums</a></li>
+  </ul>
+  <p style="font-size:0.68rem;color:rgba(245,240,232,0.3)">Not affiliated with FIFA &nbsp;&middot;&nbsp; Independent fan guide &nbsp;&middot;&nbsp; &copy; 2026 Total Dribble &nbsp;&middot;&nbsp; Last updated 17 August 2026</p>
+</footer>
+
+<script>
+function toggleMenu(){document.getElementById('mobileNav').classList.toggle('open');}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Total Dribble","url":"https://totaldribble.com"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"Total Dribble","url":"https://totaldribble.com"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://totaldribble.com/"},{"@type":"ListItem","position":2,"name":"Venue Status","item":"https://totaldribble.com/venue-status/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"2030 World Cup Venue Status Tracker","url":"https://totaldribble.com/venue-status/","description":"Status record for all 23 proposed 2030 World Cup stadiums with sourced capacities and check dates.","isPartOf":{"@type":"WebSite","name":"Total Dribble","url":"https://totaldribble.com"},"dateModified":"2026-08-17","datePublished":"2026-08-17"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Dataset","name":"2030 FIFA World Cup proposed venue status","description":"Status, city, country and capacity for each of the 23 stadiums included in the approved 2030 FIFA World Cup hosting plans, with check dates.","url":"https://totaldribble.com/venue-status/","creator":{"@type":"Organization","name":"Total Dribble"},"dateModified":"2026-08-17","license":"https://totaldribble.com/venue-status/"}
+</script>
+
+</body>
+</html>
