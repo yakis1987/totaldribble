@@ -201,14 +201,13 @@ body{background:var(--brown);color:var(--cream);font-family:'Inter',sans-serif;o
 .countdown-sub{font-size:0.55rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)}
 .countdown-sep{font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:700;color:var(--terra);opacity:0.35;margin-bottom:0.7rem}
 .country-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:1.75rem}
-.country-card{position:relative;min-height:340px;border-radius:8px;overflow:hidden;display:flex;align-items:flex-end;text-decoration:none;border:1px solid var(--border);transition:transform 0.2s,border-color 0.2s}
+.country-card{position:relative;min-height:300px;border-radius:8px;overflow:hidden;display:flex;align-items:flex-end;text-decoration:none;border:1px solid var(--border);transition:transform 0.2s,border-color 0.2s}
 .country-card:hover{transform:translateY(-3px);border-color:var(--terra)}
 .country-card .cc-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .country-card .cc-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,15,26,0.96) 0%,rgba(10,15,26,0.5) 55%,rgba(10,15,26,0.1) 100%)}
 .country-card .cc-text{position:relative;z-index:1;padding:1.5rem;width:100%;text-align:center}
-.cc-flag{position:static;height:96px;width:auto;max-width:100%;border-radius:0;margin:0 auto 0.85rem;display:block;object-fit:contain;filter:drop-shadow(0 3px 12px rgba(0,0,0,0.6))}
 .cc-name{font-family:'Barlow Condensed',sans-serif;font-size:1.7rem;font-weight:800;text-transform:uppercase;color:#fff;line-height:1;margin-bottom:0.35rem}
-.cc-meta{font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--terra);font-weight:600;margin-bottom:0.5rem}
+.cc-meta{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:0.6rem;text-shadow:0 1px 6px rgba(0,0,0,0.7)}
 .cc-desc{font-size:0.78rem;color:rgba(255,255,255,0.82);line-height:1.6}
 .stadium-strip{display:grid;grid-template-columns:repeat(6,1fr);gap:0.7rem;margin-top:1.5rem}
 .ss-card{position:relative;min-height:130px;border-radius:6px;overflow:hidden;display:flex;align-items:flex-end;text-decoration:none;border:1px solid var(--border);transition:border-color 0.2s}
@@ -235,7 +234,6 @@ body{background:var(--brown);color:var(--cream);font-family:'Inter',sans-serif;o
   .countdown-num{font-size:1.6rem}
   .countdown-sep{font-size:1.1rem}
   .country-grid{grid-template-columns:1fr}
-  .cc-flag{height:82px}
   .stadium-strip{grid-template-columns:repeat(2,1fr)}
   .trust-grid{grid-template-columns:1fr 1fr}
   .home-hero-content{padding-top:0}
@@ -339,7 +337,6 @@ body{background:var(--brown);color:var(--cream);font-family:'Inter',sans-serif;o
       <img class="cc-bg" src="/assets/images/spain/stadiums/stadium_bernabeu_desktop.webp" alt="Santiago Bernabeu stadium exterior in Madrid at dusk" loading="lazy">
       <div class="cc-overlay"></div>
       <div class="cc-text">
-        <img src="/assets/images/flag_spain.webp" alt="Flag of Spain" class="cc-flag" loading="lazy" height="92">
         <div class="cc-name">Spain</div>
         <div class="cc-meta">11 venues &middot; 9 cities</div>
         <p class="cc-desc">The largest share of the tournament, from the Bernabeu and a rebuilt Camp Nou to new-build projects in Zaragoza and Las Palmas that are still finding their footing.</p>
@@ -349,7 +346,6 @@ body{background:var(--brown);color:var(--cream);font-family:'Inter',sans-serif;o
       <img class="cc-bg" src="/assets/images/portugal/stadiums/stadium_luz_desktop.webp" alt="Estadio da Luz in Lisbon lit up on a matchday" loading="lazy">
       <div class="cc-overlay"></div>
       <div class="cc-text">
-        <img src="/assets/images/flag_portugal.webp" alt="Flag of Portugal" class="cc-flag" loading="lazy" height="92">
         <div class="cc-name">Portugal</div>
         <div class="cc-meta">3 venues &middot; 2 cities</div>
         <p class="cc-desc">The steadiest corner of the tournament. Three grounds built for Euro 2004, all already at international standard, and none of them on FIFA's list of venues at risk.</p>
@@ -359,7 +355,6 @@ body{background:var(--brown);color:var(--cream);font-family:'Inter',sans-serif;o
       <img class="cc-bg" src="/assets/images/morocco/stadiums/stadium_hassan_ii_desktop.webp" alt="Grand Stade Hassan II under construction near Casablanca" loading="lazy">
       <div class="cc-overlay"></div>
       <div class="cc-text">
-        <img src="/assets/images/flag_morocco.webp" alt="Flag of Morocco" class="cc-flag" loading="lazy" height="92">
         <div class="cc-name">Morocco</div>
         <div class="cc-meta">6 venues &middot; 6 cities</div>
         <p class="cc-desc">A first World Cup after five failed bids, and the most ambitious building programme of the three. The 115,000-seat Hassan II Stadium is the largest venue proposed anywhere.</p>
