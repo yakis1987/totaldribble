@@ -179,14 +179,20 @@ body{background:var(--brown);color:var(--cream);font-family:'Inter',sans-serif;o
   .gt-row{grid-template-columns:1fr!important}
 }
 
-.home-hero{position:relative;height:88vh;min-height:640px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:0 3rem;margin-top:0}
+.home-hero{position:relative;min-height:88vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:7rem 3rem 3.5rem;margin-top:0}
 .home-hero .hero-bg img{opacity:0.55}
 .home-hero-overlay{position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse at center,rgba(10,15,26,0.62) 0%,rgba(10,15,26,0.82) 70%,rgba(10,15,26,0.93) 100%),linear-gradient(to top,rgba(10,15,26,0.85) 0%,transparent 55%)}
-.home-hero-content{position:relative;z-index:2;max-width:780px;padding-top:60px;display:flex;flex-direction:column;align-items:center}
+.home-hero-content{position:relative;z-index:2;max-width:900px;padding-top:0;display:flex;flex-direction:column;align-items:center}
 .home-hero .hero-eyebrow{justify-content:center}
 .home-hero .hero-eyebrow::before{display:none}
 .home-hero .hero-sub{margin-left:auto;margin-right:auto}
 .home-hero .hero-stats{justify-content:center}
+.hero-flags{display:flex;gap:2.75rem;align-items:flex-end;justify-content:center;flex-wrap:wrap;margin-top:1.75rem;padding-top:1.5rem;border-top:1px solid rgba(245,240,232,0.14);width:100%;max-width:560px}
+.hero-flag-link{display:flex;flex-direction:column;align-items:center;gap:0.55rem;text-decoration:none;transition:transform 0.2s}
+.hero-flag-link:hover{transform:translateY(-4px)}
+.hero-flag-link img{height:88px;width:auto;display:block;object-fit:contain;filter:drop-shadow(0 4px 14px rgba(0,0,0,0.65))}
+.hff-name{font-family:'Barlow Condensed',sans-serif;font-size:0.82rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#fff;transition:color 0.2s;text-shadow:0 1px 6px rgba(0,0,0,0.5)}
+.hero-flag-link:hover .hff-name{color:var(--terra)}
 .countdown-bar{display:flex;flex-direction:column;align-items:center;gap:0.85rem;padding:1.5rem 0 0;position:relative;z-index:3;border-top:1px solid rgba(245,240,232,0.14);margin-top:1.75rem;width:100%;max-width:560px}
 .countdown-label{font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);font-weight:500;white-space:nowrap}
 .countdown-units{display:flex;gap:1rem;align-items:center;justify-content:center}
@@ -221,7 +227,10 @@ body{background:var(--brown);color:var(--cream);font-family:'Inter',sans-serif;o
 .city-chips a{font-size:0.78rem;font-weight:600;color:rgba(245,240,232,0.75);border:1px solid rgba(245,240,232,0.2);padding:0.35rem 0.95rem;border-radius:100px;text-decoration:none;transition:all 0.2s}
 .city-chips a:hover{border-color:var(--terra);color:var(--terra)}
 @media(max-width:900px){
-  .home-hero{padding:0 1.25rem;height:auto;min-height:560px;padding-top:5rem;padding-bottom:3rem}
+  .home-hero{padding:6rem 1.25rem 2.5rem;min-height:auto}
+  .hero-flags{gap:1.5rem;max-width:100%}
+  .hero-flag-link img{height:66px}
+  .hff-name{font-size:0.7rem;letter-spacing:0.1em}
   .countdown-units{gap:0.5rem}
   .countdown-num{font-size:1.6rem}
   .countdown-sep{font-size:1.1rem}
@@ -229,7 +238,7 @@ body{background:var(--brown);color:var(--cream);font-family:'Inter',sans-serif;o
   .cc-flag{height:82px}
   .stadium-strip{grid-template-columns:repeat(2,1fr)}
   .trust-grid{grid-template-columns:1fr 1fr}
-  .home-hero-content{padding-top:1rem}
+  .home-hero-content{padding-top:0}
 }
 @media(max-width:520px){
   .trust-grid{grid-template-columns:1fr}
@@ -286,6 +295,20 @@ body{background:var(--brown);color:var(--cream);font-family:'Inter',sans-serif;o
         <span class="countdown-sep">:</span>
         <div class="countdown-unit"><span class="countdown-num" id="cd-secs">00</span><span class="countdown-sub">Secs</span></div>
       </div>
+    </div>
+    <div class="hero-flags">
+      <a href="/spain/" class="hero-flag-link">
+        <img src="/assets/images/flag_spain.webp" alt="Map of Spain filled with the Spanish flag" loading="lazy" height="88">
+        <span class="hff-name">Spain</span>
+      </a>
+      <a href="/portugal/" class="hero-flag-link">
+        <img src="/assets/images/flag_portugal.webp" alt="Map of Portugal filled with the Portuguese flag" loading="lazy" height="88">
+        <span class="hff-name">Portugal</span>
+      </a>
+      <a href="/morocco/" class="hero-flag-link">
+        <img src="/assets/images/flag_morocco.webp" alt="Map of Morocco filled with the Moroccan flag" loading="lazy" height="88">
+        <span class="hff-name">Morocco</span>
+      </a>
     </div>
   </div>
 </header>
