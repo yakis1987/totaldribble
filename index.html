@@ -179,17 +179,28 @@ body{background:var(--brown);color:var(--cream);font-family:'Inter',sans-serif;o
   .gt-row{grid-template-columns:1fr!important}
 }
 
-.home-hero{position:relative;height:88vh;min-height:600px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;overflow:hidden;padding:0 3rem;margin-top:0}
+.home-hero{position:relative;height:88vh;min-height:640px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:0 3rem;margin-top:0}
 .home-hero .hero-bg img{opacity:0.55}
-.home-hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to right,rgba(10,15,26,0.88) 0%,rgba(10,15,26,0.5) 65%,rgba(10,15,26,0.25) 100%),linear-gradient(to top,rgba(10,15,26,0.8) 0%,transparent 60%)}
-.home-hero-content{position:relative;z-index:2;max-width:720px;padding-top:60px}
+.home-hero-overlay{position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse at center,rgba(10,15,26,0.62) 0%,rgba(10,15,26,0.82) 70%,rgba(10,15,26,0.93) 100%),linear-gradient(to top,rgba(10,15,26,0.85) 0%,transparent 55%)}
+.home-hero-content{position:relative;z-index:2;max-width:780px;padding-top:60px;display:flex;flex-direction:column;align-items:center}
+.home-hero .hero-eyebrow{justify-content:center}
+.home-hero .hero-eyebrow::before{display:none}
+.home-hero .hero-sub{margin-left:auto;margin-right:auto}
+.home-hero .hero-stats{justify-content:center}
+.countdown-bar{display:flex;flex-direction:column;align-items:center;gap:0.85rem;padding:1.5rem 0 0;position:relative;z-index:3;border-top:1px solid rgba(245,240,232,0.14);margin-top:1.75rem;width:100%;max-width:560px}
+.countdown-label{font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);font-weight:500;white-space:nowrap}
+.countdown-units{display:flex;gap:1rem;align-items:center;justify-content:center}
+.countdown-unit{display:flex;flex-direction:column;align-items:center;gap:0.15rem}
+.countdown-num{font-family:'Barlow Condensed',sans-serif;font-size:2.1rem;font-weight:800;color:var(--terra);line-height:1;min-width:2.4ch;text-align:center}
+.countdown-sub{font-size:0.55rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)}
+.countdown-sep{font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:700;color:var(--terra);opacity:0.35;margin-bottom:0.7rem}
 .country-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:1.75rem}
 .country-card{position:relative;min-height:340px;border-radius:8px;overflow:hidden;display:flex;align-items:flex-end;text-decoration:none;border:1px solid var(--border);transition:transform 0.2s,border-color 0.2s}
 .country-card:hover{transform:translateY(-3px);border-color:var(--terra)}
 .country-card .cc-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .country-card .cc-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,15,26,0.96) 0%,rgba(10,15,26,0.5) 55%,rgba(10,15,26,0.1) 100%)}
-.country-card .cc-text{position:relative;z-index:1;padding:1.5rem;width:100%}
-.cc-flag{position:static;height:92px;width:auto;max-width:100%;border-radius:0;margin:0 0 0.75rem;display:block;object-fit:contain;filter:drop-shadow(0 3px 10px rgba(0,0,0,0.55))}
+.country-card .cc-text{position:relative;z-index:1;padding:1.5rem;width:100%;text-align:center}
+.cc-flag{position:static;height:96px;width:auto;max-width:100%;border-radius:0;margin:0 auto 0.85rem;display:block;object-fit:contain;filter:drop-shadow(0 3px 12px rgba(0,0,0,0.6))}
 .cc-name{font-family:'Barlow Condensed',sans-serif;font-size:1.7rem;font-weight:800;text-transform:uppercase;color:#fff;line-height:1;margin-bottom:0.35rem}
 .cc-meta{font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--terra);font-weight:600;margin-bottom:0.5rem}
 .cc-desc{font-size:0.78rem;color:rgba(255,255,255,0.82);line-height:1.6}
@@ -210,9 +221,12 @@ body{background:var(--brown);color:var(--cream);font-family:'Inter',sans-serif;o
 .city-chips a{font-size:0.78rem;font-weight:600;color:rgba(245,240,232,0.75);border:1px solid rgba(245,240,232,0.2);padding:0.35rem 0.95rem;border-radius:100px;text-decoration:none;transition:all 0.2s}
 .city-chips a:hover{border-color:var(--terra);color:var(--terra)}
 @media(max-width:900px){
-  .home-hero{padding:0 1.5rem;height:auto;min-height:520px;padding-top:5rem;padding-bottom:3rem}
+  .home-hero{padding:0 1.25rem;height:auto;min-height:560px;padding-top:5rem;padding-bottom:3rem}
+  .countdown-units{gap:0.5rem}
+  .countdown-num{font-size:1.6rem}
+  .countdown-sep{font-size:1.1rem}
   .country-grid{grid-template-columns:1fr}
-  .cc-flag{height:76px}
+  .cc-flag{height:82px}
   .stadium-strip{grid-template-columns:repeat(2,1fr)}
   .trust-grid{grid-template-columns:1fr 1fr}
   .home-hero-content{padding-top:1rem}
@@ -260,6 +274,18 @@ body{background:var(--brown);color:var(--cream);font-family:'Inter',sans-serif;o
       <div class="hstat"><span class="hstat-num">18</span><span class="hstat-label">Stadium guides</span></div>
       <div class="hstat"><span class="hstat-num">15</span><span class="hstat-label">City guides</span></div>
       <div class="hstat"><span class="hstat-num">3</span><span class="hstat-label">Continents</span></div>
+    </div>
+    <div class="countdown-bar">
+      <span class="countdown-label">Until kickoff &middot; 8 June 2030</span>
+      <div class="countdown-units">
+        <div class="countdown-unit"><span class="countdown-num" id="cd-days">000</span><span class="countdown-sub">Days</span></div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-unit"><span class="countdown-num" id="cd-hours">00</span><span class="countdown-sub">Hours</span></div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-unit"><span class="countdown-num" id="cd-mins">00</span><span class="countdown-sub">Mins</span></div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-unit"><span class="countdown-num" id="cd-secs">00</span><span class="countdown-sub">Secs</span></div>
+      </div>
     </div>
   </div>
 </header>
@@ -460,6 +486,20 @@ body{background:var(--brown);color:var(--cream);font-family:'Inter',sans-serif;o
 
 <script>
 function toggleMenu(){document.getElementById('mobileNav').classList.toggle('open');}
+const cdTarget=new Date('2030-06-08T00:00:00');
+function updateCountdown(){
+  const el=document.getElementById('cd-days'); if(!el) return;
+  const diff=cdTarget-new Date(); if(diff<=0) return;
+  const d=Math.floor(diff/86400000);
+  const h=Math.floor((diff%86400000)/3600000);
+  const m=Math.floor((diff%3600000)/60000);
+  const sec=Math.floor((diff%60000)/1000);
+  el.textContent=String(d).padStart(3,'0');
+  document.getElementById('cd-hours').textContent=String(h).padStart(2,'0');
+  document.getElementById('cd-mins').textContent=String(m).padStart(2,'0');
+  document.getElementById('cd-secs').textContent=String(sec).padStart(2,'0');
+}
+updateCountdown();setInterval(updateCountdown,1000);
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"Total Dribble","url":"https://totaldribble.com","description":"Independent fan travel guide to the 2030 FIFA World Cup across Spain, Portugal and Morocco.","email":"info@totaldribble.com"}
