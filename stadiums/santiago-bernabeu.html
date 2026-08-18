@@ -201,6 +201,7 @@ body{background:var(--brown);color:var(--cream);font-family:'Inter',sans-serif;o
   .htimeline{flex-wrap:wrap;gap:1.5rem}
   .htimeline-line{display:none}
   .other-transport,.hotel-cta{padding:1.5rem}
+  .gt-row{grid-template-columns:1fr!important}
 }
 
 .quick-answer{background:var(--brown3);border-left:4px solid var(--terra);border-radius:6px;padding:1.4rem 1.6rem;margin:0 auto;max-width:900px}
@@ -209,6 +210,18 @@ body{background:var(--brown);color:var(--cream);font-family:'Inter',sans-serif;o
 .quick-answer strong{color:var(--gold);font-weight:700}
 .quick-answer .qa-checked{display:block;font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-top:0.85rem;font-style:normal}
 .qa-wrap{padding:2rem 3rem 0}
+.tc-card{max-width:1100px;margin:2.5rem auto 0;padding:0 3rem}
+.tc-inner{display:grid;grid-template-columns:300px 1fr;background:var(--brown3);border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:8px;overflow:hidden}
+.tc-img img{width:100%;height:100%;min-height:220px;object-fit:cover;display:block}
+.tc-body{padding:1.5rem 1.8rem}
+.tc-label{font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;color:var(--gold);margin:0 0 0.9rem}
+.tc-row{display:grid;grid-template-columns:150px 1fr;gap:1rem;padding:0.55rem 0;border-bottom:1px solid var(--border);font-size:0.88rem;line-height:1.65}
+.tc-row:last-of-type{border-bottom:none}
+.tc-k{font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;font-size:0.78rem;color:var(--cream);opacity:0.85;padding-top:0.1rem}
+.tc-v{color:var(--cream)}
+.tc-v strong{color:var(--gold);font-weight:700}
+.tc-source{display:block;font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-top:0.9rem}
+@media(max-width:900px){.tc-card{padding:0 1.5rem}.tc-inner{grid-template-columns:1fr}.tc-img img{min-height:160px;max-height:200px}.tc-row{grid-template-columns:1fr;gap:0.15rem}}
 @media(max-width:900px){.qa-wrap{padding:1.5rem 1.5rem 0}.quick-answer{padding:1.2rem 1.2rem}}
 </style>
 </head>
@@ -489,15 +502,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 
-  <div class="htimeline-wrap" style="padding-left:0;padding-right:0">
-    <p class="htimeline-label">From Central Madrid</p>
-    <div class="htimeline">
-      <div class="htimeline-line"></div>
-      <div class="htimeline-stop"><div class="htimeline-dot"></div><div class="htimeline-city">Sol / Gran Vía</div><div class="htimeline-stadium">City centre</div></div>
-      <div class="htimeline-segment"><div class="htimeline-duration">~15-20 min</div></div>
-      <div class="htimeline-stop"><div class="htimeline-dot"></div><div class="htimeline-city">Santiago Bernabéu</div><div class="htimeline-stadium">Metro Line 10, direct<br>~83,000 seats</div></div>
+  <div class="gt-row" style="max-width:1100px;margin:0 auto;padding:0 3rem;display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start">
+    <div class="htimeline-wrap" style="padding:2.5rem 0 0">
+      <p class="htimeline-label">From Central Madrid</p>
+      <div class="htimeline">
+        <div class="htimeline-line"></div>
+        <div class="htimeline-stop"><div class="htimeline-dot"></div><div class="htimeline-city">Sol / Gran Vía</div><div class="htimeline-stadium">City centre</div></div>
+        <div class="htimeline-segment"><div class="htimeline-duration">~15-20 min</div></div>
+        <div class="htimeline-stop"><div class="htimeline-dot"></div><div class="htimeline-city">Santiago Bernabéu</div><div class="htimeline-stadium">Metro Line 10, direct<br>~83,000 seats</div></div>
+      </div>
+      <p style="text-align:center;font-size:0.65rem;color:var(--muted);margin-top:1.5rem">Exact matchday shuttle and transport plans will be confirmed by FIFA and Spanish authorities closer to 2030. Check back here for updates.</p>
     </div>
-    <p style="text-align:center;font-size:0.65rem;color:var(--muted);margin-top:1.5rem">Exact matchday shuttle and transport plans will be confirmed by FIFA and Spanish authorities closer to 2030. Check back here for updates.</p>
+
+    <div style="padding-top:2.5rem">
+      <p class="section-label" style="text-align:center">Find It on the Map</p>
+      <div style="border-radius:8px;overflow:hidden;border:1px solid var(--border)">
+        <iframe src="https://www.google.com/maps?q=40.4531,-3.6883&z=15&output=embed" width="100%" height="230" style="border:0;display:block;filter:grayscale(0.3) invert(0.92) contrast(0.9)" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map showing the location of Santiago Bernabéu Stadium"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="tc-card">
+    <div class="tc-inner">
+      <div class="tc-img"><img src="../assets/images/spain/transport/transport_metro_desktop.webp" alt="Madrid Metro platform on the network that serves Santiago Bernabéu via Line 10" loading="lazy"></div>
+      <div class="tc-body">
+        <p class="tc-label">Transit Costs &middot; Verified</p>
+        <div class="tc-row"><span class="tc-k">Single ticket</span><span class="tc-v"><strong>&euro;1.50</strong> flat &middot; since 1 June 2026 Madrid Metro charges one fixed single fare regardless of distance</span></div>
+        <div class="tc-row"><span class="tc-k">Also needed</span><span class="tc-v"><strong>Multi card</strong> &middot; a rechargeable &euro;2.50 card, bought once at any station machine, loads all tickets</span></div>
+        <div class="tc-row"><span class="tc-k">Airport catch</span><span class="tc-v">A &euro;3 supplement applies at the Barajas airport stations, taking a single to roughly <strong>&euro;4.50-5</strong></span></div>
+        <div class="tc-row"><span class="tc-k">Stadium station</span><span class="tc-v">Santiago Bernabéu (Line 10) &middot; exits onto Paseo de la Castellana directly opposite the stadium</span></div>
+        <span class="tc-source">Source: Comunidad de Madrid fare announcement, 28 May 2026 &middot; checked 18 August 2026</span>
+      </div>
+    </div>
   </div>
 </section>
 

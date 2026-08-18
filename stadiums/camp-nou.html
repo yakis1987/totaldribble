@@ -210,6 +210,18 @@ body{background:var(--brown);color:var(--cream);font-family:'Inter',sans-serif;o
 .quick-answer strong{color:var(--gold);font-weight:700}
 .quick-answer .qa-checked{display:block;font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-top:0.85rem;font-style:normal}
 .qa-wrap{padding:2rem 3rem 0}
+.tc-card{max-width:1100px;margin:2.5rem auto 0;padding:0 3rem}
+.tc-inner{display:grid;grid-template-columns:300px 1fr;background:var(--brown3);border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:8px;overflow:hidden}
+.tc-img img{width:100%;height:100%;min-height:220px;object-fit:cover;display:block}
+.tc-body{padding:1.5rem 1.8rem}
+.tc-label{font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;color:var(--gold);margin:0 0 0.9rem}
+.tc-row{display:grid;grid-template-columns:150px 1fr;gap:1rem;padding:0.55rem 0;border-bottom:1px solid var(--border);font-size:0.88rem;line-height:1.65}
+.tc-row:last-of-type{border-bottom:none}
+.tc-k{font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;font-size:0.78rem;color:var(--cream);opacity:0.85;padding-top:0.1rem}
+.tc-v{color:var(--cream)}
+.tc-v strong{color:var(--gold);font-weight:700}
+.tc-source{display:block;font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-top:0.9rem}
+@media(max-width:900px){.tc-card{padding:0 1.5rem}.tc-inner{grid-template-columns:1fr}.tc-img img{min-height:160px;max-height:200px}.tc-row{grid-template-columns:1fr;gap:0.15rem}}
 @media(max-width:900px){.qa-wrap{padding:1.5rem 1.5rem 0}.quick-answer{padding:1.2rem 1.2rem}}
 </style>
 </head>
@@ -532,6 +544,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="section-label" style="text-align:center">Find It on the Map</p>
       <div style="border-radius:8px;overflow:hidden;border:1px solid var(--border)">
         <iframe src="https://www.google.com/maps?q=41.3809,2.1228&z=15&output=embed" width="100%" height="230" style="border:0;display:block;filter:grayscale(0.3) invert(0.92) contrast(0.9)" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map showing the location of Camp Nou"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="tc-card">
+    <div class="tc-inner">
+      <div class="tc-img"><img src="../assets/images/spain/transport/transport_metro_barcelona_desktop.webp" alt="Barcelona Metro platform on the TMB network that serves Camp Nou via Lines 3 and 5" loading="lazy"></div>
+      <div class="tc-body">
+        <p class="tc-label">Transit Costs &middot; Verified</p>
+        <div class="tc-row"><span class="tc-k">Single ticket</span><span class="tc-v"><strong>&euro;2.90</strong> &middot; TMB single at the 2026 fare, one journey on metro or bus, no transfers</span></div>
+        <div class="tc-row"><span class="tc-k">Smarter buy</span><span class="tc-v"><strong>T-casual</strong> &middot; 10 journeys for &euro;13 at the 2026 fare, so &euro;1.30 per ride across metro, bus and tram</span></div>
+        <div class="tc-row"><span class="tc-k">Airport catch</span><span class="tc-v">Single tickets are not valid at the Aeroport T1 and T2 stations on L9 Sud &middot; the separate airport ticket is <strong>&euro;5.90</strong></span></div>
+        <div class="tc-row"><span class="tc-k">Stadium stations</span><span class="tc-v">Palau Reial and Les Corts (Line 3) &middot; Collblanc and Badal (Line 5)</span></div>
+        <span class="tc-source">Sources: ATM Barcelona 2026 fare decision &middot; TMB fare pages &middot; checked 18 August 2026</span>
       </div>
     </div>
   </div>
